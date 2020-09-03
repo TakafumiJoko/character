@@ -8,11 +8,14 @@ gem 'webpacker',                  '4.0.7'
 gem 'bootsnap',                   '1.4.5', require: false
 gem 'faker',                      '2.1.2'    
 gem 'will_paginate',              '3.1.8'
-gem 'bootstrap-will_paginate',    '1.0.0'
+gem 'will_paginate-bootstrap4',   '0.2.2'
 gem 'bcrypt',                     '3.1.13'
 gem 'image_processing',           '1.11.0'
 gem 'active_storage_validations', '0.8.2'
 gem 'bootstrap_form',             '4.5.0'
+gem 'bootstrap',                  '4.5.2'
+gem 'jquery-rails',               '4.4.0'
+gem 'pry-rails',                  '0.3.9'
 
 group :development, :test do
   gem 'sqlite3',           '1.4.1'
@@ -25,7 +28,7 @@ group :development do
   gem 'listen',                '3.1.5'
   gem 'spring',                '2.1.0'
   gem 'spring-watcher-listen', '2.0.1'
-  gem 'spring-commands-rspec', '1.0.4'    
+  gem 'spring-commands-rspec', '1.0.4'
 end
 
 group :test do
