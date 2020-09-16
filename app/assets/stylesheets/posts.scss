@@ -1,0 +1,84 @@
+.posts-new-container {
+}
+
+.posts-new-left h1 {
+  margin-bottom: 20px;
+}
+
+.posts-new-right > div {
+  margin-top: 60px;
+}
+
+.draw-settings,
+.posts-form {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#draw-area {
+  background-color: #fff;
+}
+
+.draw-settings .btn {
+  display: inline-block;
+  margin: 10px 10px 10px 0;
+}
+
+.posts-form div {
+  display: inline-block;
+  width: 70px;
+}
+
+.post-image {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #000;
+}
+
+.post-origin {
+  font-size: 32px;
+}
+
+.post-stroke-count {
+  font-size: 24px;
+}
+
+.post-index-posts-list li {
+  position: relative;
+}
+
+.ryakuji {
+  display: block;
+  border: 5px solid black;
+}
+
+.comment-count {
+  display: block;
+  font-size: 16px;
+}
+
+.origin {
+  display: block;
+  float: left;
+  font-size: 32px;
+}
+
+.stroke-count {
+  display: block;
+  float: right;
+  font-size:32px;
+}
+
+.ryakuji-area {
+  margin-bottom: 50px;
+}
+
+.edit-btn {
+  display: block;
+  float: left;
+}
+
+.destroy-btn {
+  display: block;
+  float: right;
+}

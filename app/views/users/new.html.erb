@@ -1,12 +1,19 @@
 <div class="row">
-  <div class="col-md-6 offset-md-3 signup-form">
-    <h1>新規登録</h1>
+  <div class="col-md-3">
+    
+  </div>
+  <div class="col-md-6 users-signup-center">
+    <h1>オリジナル略字投稿サイト</h1>
+    <h1>会員登録ページ</h1>
     <%= bootstrap_form_with(model: @user, local: true) do |f| %>
-      <%= f.text_field :name %>
-      <%= f.email_field :email %>
-      <%= f.password_field :password %>
-      <%= f.password_field :password_confirmation %>
-      <%= f.submit "新規登録", class: "btn btn-primary" %>
-    <% end %>
+      <%= f.text_field :name, label: '名前' %>
+      <%= f.email_field :email, label: 'メールアドレス ' %>
+      <%= f.password_field :password, label: 'パスワード' %>
+      <%= f.password_field :password_confirmation, label: 'もう一度パスワードを入力してください。' %>
+      <%= f.submit "会員登録する", class: "btn btn-primary" %>
+    <% end %>  
+  </div>
+  <div class="col-md-3">
+    
   </div>
 </div>

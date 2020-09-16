@@ -1,0 +1,8 @@
+<h1>投稿編集ページ</h1>
+<%= image_tag @post.image_url, size: '450x450', class: 'ryakuji' %>
+<%= bootstrap_form_with(model: @post, local: true, class: 'posts-form') do |f| %>
+  <%= f.text_field :origin, label: '元の漢字', maxlength: 1, class: 'origin-field' %>
+  <%= f.number_field :stroke_count, label: '画数', in: 1..99, class: 'stroke-count-field' %>
+  <br>
+  <%= f.submit '更新する', id: 'submit-button', class: 'btn btn-success' %>
+<% end %>
