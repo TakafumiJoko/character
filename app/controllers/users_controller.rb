@@ -18,8 +18,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "新規登録に成功しました。"
-      redirect_to @user #のちにpostImage/indexに変更します。
+      flash[:success] = "登録に成功しました。"
+      redirect_to new_post_url
     else
       render :new 
     end
@@ -31,17 +31,12 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find_by(id: params[:id])
-    if @user.update(user_params)
+    if @user.update_attributes(user_params)
       flash[:success] = "更新に成功しました。"
       redirect_to @user
     else
       render :edit
     end
-  end
-  
-  def destroy
-    log_out
-    redirect_to signup_url #のちにトップページに変更します。
   end
 
   private
@@ -50,10 +45,11 @@ class UsersController < ApplicationController
                                    :password_confirmation)
     end
     
-    def logged_in_user
-      unless logged_in?
-        flash[:danger] = "セッション情報が切れています。"
-        redirect_to login_url 
+    def correct_user
+      user = User.find_by(id: params[:id])
+      unless user == current_user
+        flash[:danger] = "権限がありません。"
+        redirect_to new_post_url
       end
     end
 end

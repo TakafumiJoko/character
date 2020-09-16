@@ -1,19 +1,4 @@
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  color: black;
-}
-
-a {
-  text-decoration: none;
-}
-
-li {
-  list-style: none;
-}
-
-.users {
+.users-index-users-list {
   list-style: none;
   margin-bottom: 20px;
   li {
@@ -23,37 +8,22 @@ li {
   }
 }
 
-.user_info {
-  margin-left: 20px;
+.users-index-center h1,
+.users-index-center ul {
+  margin-bottom: 30px;
 }
 
-.user_info h1, 
-.user_info h2 {
-  margin-bottom: 20px;
+.users-signup-center h1,
+.users-signup-center form {
+  margin-bottom: 30px;
 }
 
-.col, 
-.col-md-1,
-.col-md-2,
-.col-md-3,
-.col-md-4,
-.col-md-5,
-.col-md-6,
-.col-md-7,
-.col-md-8,
-.col-md-9,
-.col-md-10,
-.col-md-11,
-.col-md-12,
-{
-  padding: 50px 0;
-}
-
-.gravatar-edit {
-  padding: 30px 0;
-}
-
-.signup-form .btn {
-  text-align: center;
+.users-signup-center .btn {
   width: 100%;
+}
+
+.users-edit-center > h1,
+.users-edit-center > form,
+.users-edit-center > div {
+  margin-bottom: 30px;
 }

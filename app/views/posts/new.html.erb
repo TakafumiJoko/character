@@ -1,0 +1,37 @@
+<div class="posts-new-container">
+  <div class="row">
+    <div class="col-md-5 offset-2 posts-new-left">
+      <h1>投稿ページ</h1>
+      <canvas 
+        id="draw-area"
+        width="450px"
+        height="450px"
+        style="border: 1px solid black">
+      </canvas>
+    </div>
+    <div class="col-md-4 posts-new-right">
+      <div class="draw-settings">
+        <button id="clear-button" class="btn btn-danger">全消し</button>
+        <br>
+        <button id="erase-button" class="btn btn-warning">消しゴムモード</button>
+        <button id="draw-button" class="btn btn-success">鉛筆モード</button>
+        <br>
+        <button id="undo-button" class="btn btn-info">１画前に戻る</button>
+        <button id="redo-button" class="btn btn-primary">１画後に進む</button>
+      </div>
+      <div>
+        <%= bootstrap_form_with(model: @post, local: true, class: 'posts-form') do |f| %>
+          <%= f.hidden_field :image_url, id: 'image-url-field', value: '', class: 'image-url-field' %>
+          <%= f.text_field :origin, label: '元の漢字', maxlength: 1, class: 'origin-field' %>
+          <%= f.number_field :stroke_count, label: '画数', in: 1..99, class: 'stroke-count-field' %>
+          <br>
+          <%= f.submit '投稿する', id: 'submit-button', class: 'btn btn-success' %>
+        <% end %>      
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :javascript_includes do %>
+  <%= javascript_pack_tag 'posts/application', 'data-turbolinks-track': 'reload' %>
+<% end %>

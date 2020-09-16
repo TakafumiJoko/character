@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    
   end
   
   def create
@@ -7,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       log_in user
       flash[:success] = "ログインに成功しました。"
-      redirect_to user #のちに/postimages/indexに変更します。
+      redirect_to new_post_url
     else
       flash.now[:danger] = "正しい入力をお願いします。"
       render :new
@@ -16,6 +17,7 @@ class SessionsController < ApplicationController
   
   def destroy
     log_out
-    redirect_to signup_url 
+    flash[:success] = "ログアウトに成功しました。"
+    redirect_to login_url 
   end
 end
