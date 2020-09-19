@@ -3,7 +3,14 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.paginate(page: params[:page])
+    @q = Post.ransack()
+    if params[:q].present?
+      @q = Post.ransack(search_params)
+      @posts = @q.result
+    else
+      params[:q] = {sorts: 'id desc'}
+      @posts = Post.all
+    end
   end
   
   def show
@@ -21,7 +28,7 @@ class PostsController < ApplicationController
       flash[:success] = "投稿に成功しました。"
       redirect_to @post
     else
-      render :show
+      render :new
     end
   end
   
@@ -33,15 +40,14 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     if @post.update_attributes(post_params)
       flash[:success] = "編集に成功しました。"
-      redirect_to edit_post_url
+      redirect_to @post
     else
       render :edit
     end
   end
   
   def destroy
-    @post = current_user.posts.find(params[:id])
-    @post.destroy
+    Post.destroy(params[:id])
     flash[:success] = "削除に成功しました。"
     redirect_to new_post_url
   end
@@ -53,12 +59,17 @@ class PostsController < ApplicationController
                                    :origin, 
                                    :stroke_count)
     end
+
+    def search_params
+      params.require(:q).permit(:origin_cont, 
+                                :sorts)
+    end
     
     def correct_user
-      @post = current_user.posts.find_by(id: params[:id])
-      if @post.nil?
+      post = Post.find_by(id:params[:id])
+      unless post.user == current_user
         flash[:danger] = "権限がありません。"
-        redirect_to new_post_url
+        redirect_to post
       end
     end
 end

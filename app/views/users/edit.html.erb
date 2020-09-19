@@ -10,11 +10,7 @@
       <%= f.password_field :password, label: 'パスワード' %>
       <%= f.password_field :password_confirmation, label: 'もう一度パスワードを入力してください。' %>
       <%= f.submit "更新する", class: "btn btn-primary" %>
-    <% end %>
-    <div class="users-edit-gravatar">
-      <%= gravatar_for @user %>
-      <a href="https://gravatar.com/emails" target="_blank">プロフィール画像を変更する</a>
-    </div>
+    <% end %>  
   </div>
   <div class="col-md-3">
     

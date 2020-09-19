@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      post: 略字
+      comment: コメント
+    attributes: 
+      user: 
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_digest: 再確認用パスワード
+      post:
+        origin: 元の漢字
+        stroke_count: 画数
+      comment:
+        body: 本文
+    help:
+      user:
+        name: 名前は2~50文字以内です。
+      

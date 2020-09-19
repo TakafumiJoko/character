@@ -10,4 +10,9 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
   
   default_scope -> { order(created_at: :desc) }
+  
+  ransacker :comments_count do
+    query = '(SELECT COUNT (*) FROM comments WHERE comments.post_id = posts.id GROUP BY comments.post_id ORDER BY COUNT (*) DESC)'
+    Arel.sql(query)
+  end
 end
