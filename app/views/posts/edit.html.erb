@@ -1,5 +1,8 @@
 <h1>投稿編集ページ</h1>
 <%= image_tag @post.image_url, size: '450x450', class: 'ryakuji' %>
+<%= @post.origin %>
+<%= @post.stroke_count %>
+
 <%= bootstrap_form_with(model: @post, local: true, class: 'posts-form') do |f| %>
   <%= f.text_field :origin, label: '元の漢字', maxlength: 1, class: 'origin-field' %>
   <%= f.number_field :stroke_count, label: '画数', in: 1..99, class: 'stroke-count-field' %>
