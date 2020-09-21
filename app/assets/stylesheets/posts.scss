@@ -1,55 +1,142 @@
-.posts-new-container {
+/* -----------posts/index----------- */
+
+.index-content{
+    margin-top: 50px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.posts-new-left h1 {
-  margin-bottom: 20px;
+.search{
+    height: 70px;
+    width: 250px;
+    margin: 0 0 0 50px;
 }
 
-.posts-new-right > div {
-  margin-top: 60px;
+.index-content .index-item {
+  width: 50%;
+  position: relative;
 }
 
-.draw-settings,
-.posts-form {
-  margin-bottom: 30px;
-  text-align: center;
+.index-ryakuji {
+  display: block;
+  border: 5px solid black;
+}
+
+.index-origin {
+  font-size: 32px;
+  position: absolute;
+  top: 0;
+  left: 5px;
+}
+
+.index-stroke-count {
+  font-size: 32px;
+  position: absolute;
+  top: 310px;
+  left: 5px;
+}
+
+.index-comment-count {
+  display: block;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px){
+    .wrapper {
+        margin: 25px;
+    }
+    
+    .search {
+        margin: 0 0 0 25px;
+    }
+    
+    .index-content{
+        flex-direction: column;
+        margin-top: 25px;
+    }
+    
+    .index-content .index-item {
+        width: 100%;
+    }
+}
+
+/* ----------------posts/new----------------- */
+.draw-wrapper {
+    display: flex;
 }
 
 #draw-area {
   background-color: #fff;
 }
 
-.draw-settings .btn {
+.draw-settings {
+  margin-left: 25px;
+  text-align: center;
+}
+
+.draw-buttons {
+  margin-top: 60px;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid #aaa;
+}
+
+.draw-buttons .btn {
   display: inline-block;
-  margin: 10px 10px 10px 0;
+  margin: 5px;
+  padding: 6px;
 }
 
-.posts-form div {
-  display: inline-block;
-  width: 70px;
+.draw-form {
+    margin-top: 15px;
 }
 
-.post-image {
-  width: 200px;
-  height: 200px;
-  border: 1px solid #000;
+.draw-settings .form-group {
+    margin-bottom: 5px!important;
 }
 
-.post-origin {
-  font-size: 32px;
+.origin-field,
+.stroke-count-field {
+  width: 80px!important;
+  margin: 0 auto;
 }
 
-.post-stroke-count {
-  font-size: 24px;
+
+/*------------posts/show-----------*/
+.content{
+    margin-top: 50px;
+    text-align: center;
+    margin: 0 auto;
 }
 
-.post-index-posts-list li {
+.ryakuji-area {
+  margin-bottom: 50px;
+}
+
+.ryakuji-area .item {
   position: relative;
+  margin-bottom: 20px;
 }
+
 
 .ryakuji {
   display: block;
   border: 5px solid black;
+}
+
+.origin {
+  font-size: 48px;
+  position: absolute;
+  top: 0;
+  left: 5px;
+}
+
+.stroke-count {
+  font-size: 48px;
+  position: absolute;
+  top: 395px;
+  left: 5px;
 }
 
 .comment-count {
@@ -57,21 +144,19 @@
   font-size: 16px;
 }
 
-.origin {
-  display: block;
-  float: left;
-  font-size: 32px;
+.comment-user-name {
+  font-size: 16px;
+  text-align: left;
 }
 
-.stroke-count {
-  display: block;
-  float: right;
-  font-size:32px;
+.comment-body {
+  font-size: 16px;
+  background-color: #eee;
+  padding: 5px 0px 5px 10px;
+  text-align: left;
 }
 
-.ryakuji-area {
-  margin-bottom: 50px;
-}
+/*----------------posts/edit-------------*/
 
 .edit-btn {
   display: block;
@@ -82,3 +167,4 @@
   display: block;
   float: right;
 }
+

@@ -1,8 +1,5 @@
 <div class="row">
-  <div class="col-md-3">
-    
-  </div>
-  <div class="col-md-6 users-signup-center">
+  <div class="col-md-6 offset-md-3 signup-wrapper">
     <h1>オリジナル略字投稿サイト</h1>
     <h1>会員登録ページ</h1>
     <%= bootstrap_form_with(model: @user, local: true) do |f| %>
@@ -12,8 +9,5 @@
       <%= f.password_field :password_confirmation, label: 'もう一度パスワードを入力してください。' %>
       <%= f.submit "会員登録する", class: "btn btn-primary" %>
     <% end %>  
-  </div>
-  <div class="col-md-3">
-    
   </div>
 </div>

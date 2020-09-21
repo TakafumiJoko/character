@@ -1,11 +1,18 @@
-<h1>投稿編集ページ</h1>
-<%= image_tag @post.image_url, size: '450x450', class: 'ryakuji' %>
-<%= @post.origin %>
-<%= @post.stroke_count %>
+<div class="wrapper">
+  <div class="content">
+    <div class="ryakuji-area">
+      <div class="item">
+        <%= link_to(image_tag(@post.image_url, size: '450x450'), @post, class: 'ryakuji') %>
+        <%= simple_format(@post.origin, class: 'origin') %>
+        <%= simple_format("#{@post.stroke_count}画", class: 'stroke-count') %>
+      </div>
+    </div>
+    <%= bootstrap_form_with(model: @post, local: true, class: 'posts-form') do |f| %>
+      <%= f.text_field :origin, label: '元の漢字', maxlength: 1, class: 'origin-field' %>
+      <%= f.number_field :stroke_count, label: '画数', in: 1..99, class: 'stroke-count-field' %>
+      <br>
+      <%= f.submit '更新する', id: 'submit-button', class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>
 
-<%= bootstrap_form_with(model: @post, local: true, class: 'posts-form') do |f| %>
-  <%= f.text_field :origin, label: '元の漢字', maxlength: 1, class: 'origin-field' %>
-  <%= f.number_field :stroke_count, label: '画数', in: 1..99, class: 'stroke-count-field' %>
-  <br>
-  <%= f.submit '更新する', id: 'submit-button', class: 'btn btn-success' %>
-<% end %>

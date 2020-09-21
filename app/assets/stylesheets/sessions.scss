@@ -1,10 +1,13 @@
-.sessions-login-center .btn,
-.accountRegistrationLead,
-.login-help {
+.login-wrapper {
+  margin-top: 100px;
+}
+
+.login-wrapper .btn,
+.accountRegistrationLead{
   text-align: center;
 }
 
-.sessions-login-center .btn {
+.login-wrapper .btn {
   width: 100%;
 }
 

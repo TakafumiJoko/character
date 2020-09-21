@@ -1,5 +1,5 @@
-<h3><%= comment.user.name %>さん</h3>
-<pre><%= comment.body %></pre>
+<%= simple_format("#{comment.user.name}さん", class: 'comment-user-name') %>
+<%= simple_format(comment.body, class: 'comment-body') %>
 <% if comment.user == current_user %>
   <p><%= link_to "コメントを削除する", [@post, comment], method: :delete, data: { confirm: '本当に削除していいですか？' } %></p>
 <% end %>

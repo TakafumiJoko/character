@@ -1,24 +1,36 @@
-# README
+# 当アプリ『略字』でオリジナルの略字を作ってみよう！
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+    はじめまして。作者の上甲(Email: jktkfm5535@gmail.com)と申します。
 
-Things you may want to cover:
+    このアプリは略字を書いてコメントし合うソーシャルメディアです。
 
-* Ruby version
+[『略字』](https://ryakuji.herokuapp.com)
 
-* System dependencies
+![『略字』画像](/character/app/assets/images/ryakuji-top-page.png)
 
-* Configuration
+# 使用した技術
 
-* Database creation
+- インフラ
+ - AWS(EC2 / S3)
+- フロントエンド 
+ - HTML / CSS / JavaScript / Bootstrap
+- バックエンド 
+ - Ruby 2.6.3 / Rails 6.0.3
+- データベース 
+ - PostgreSQL(本番環境)
 
-* Database initialization
+# 主な機能
 
-* How to run the test suite
+## CANVASを利用した描画&投稿機能
 
-* Services (job queues, cache servers, search engines, etc.)
+その場でCANVASデータが描画できます。
 
-* Deployment instructions
+CANVASデータをDataURLに変換し、アップロードしています。
 
-* ...
+## コメント機能
+
+略字の投稿に対しコメントを投稿することができます。
+
+# ライセンス
+
+https://ja.cooltext.com さんのサービスによりロゴ画像を作りました。

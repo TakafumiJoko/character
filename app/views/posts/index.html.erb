@@ -1,20 +1,13 @@
-<div class="row">
-  <div class="col-md-3">
+<div class="wrapper">
+  <div class="search">
     <%= search_form_for @q, url: posts_path do |f| %>
       <%= f.search_field(:origin_cont,  placeholder: '元の漢字で検索する', class: 'form-control mr-sm-2') %>
       <%= f.select(:sorts, {'新着順': 'id desc', '画数が少ない順': 'stroke_count asc', 'コメントが多い順': 'comments_count desc', 'コメントが少ない順': 'comments_count asc'}, selected: params[:q][:sorts]) %>
       <%= f.submit "検索" %>
     <% end %>
   </div>
-  <div class="col-md-6">
-    <% @posts.each do |post| %>
-      <%= link_to image_tag(post.image_url), post %>
-      <%= post.user.name %>
-      <%= post.origin %>
-      <%= post.stroke_count %>
-    <% end %>
-  </div>
-  <div class="col-md-3">
-    
+  <div class="index-content">
+    <%= render @posts %>
   </div>
 </div>
+

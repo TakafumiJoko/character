@@ -1,48 +1,46 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-ligh">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <% if logged_in? %>
+      <%= link_to(image_tag("https://images.cooltext.com/5457219.png", size: "165x99", alt: "略字"), new_post_path) %>
+    <% else %>
+      <%= link_to(image_tag("https://images.cooltext.com/5457219.png", size: "165x99", alt: "略字"), root_path) %>
+    <% end %>
+    <ul class="navbar-nav mr-auto">
       <% if logged_in? %>
-        <%= link_to(image_tag("https://images.cooltext.com/5457219.png", size: "165x99", alt: "略字"), new_post_path) %>
-      <% else %>
-        <%= link_to(image_tag("https://images.cooltext.com/5457219.png", size: "165x99", alt: "略字"), root_path) %>
-      <% end %>
-      <ul class="navbar-nav mr-auto">
-        <% if logged_in? %>
-          <li class="nav-item">
-            <%= link_to "投稿一覧", posts_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "新規投稿", new_post_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <div class="dropdown">
-              <button class="dropdown-btn" id="dropdown-btn">
-                アカウント
-              </button>
-              <div class="dropdown-body">
-                <ul class="dropdown-list">
+        <li class="nav-item">
+          <%= link_to "投稿一覧", posts_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "新規投稿", new_post_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <div class="dropdown">
+            <button class="dropdown-btn" id="dropdown-btn">
+              アカウント
+            </button>
+            <div class="dropdown-body">
+              <ul class="dropdown-list">
+                <li class="dropdown-item">
+                  <%= link_to "プロフィール", user_path(current_user), class: "dropdown-item-link" %> 
+                </li>
                   <li class="dropdown-item">
-                    <%= link_to "プロフィール", user_path(current_user), class: "dropdown-item-link" %> 
-                  </li>
-                    <li class="dropdown-item">
-                    <%= link_to "設定", edit_user_path(current_user), class: "dropdown-item-link" %> 
-                  </li>
-                  <li class="dropdown-item">
-                    <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item-link" %> 
-                  </li>
-                </ul>
-              </div>
+                  <%= link_to "設定", edit_user_path(current_user), class: "dropdown-item-link" %> 
+                </li>
+                <li class="dropdown-item">
+                  <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item-link" %> 
+                </li>
+              </ul>
             </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "会員登録", signup_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "ログイン", login_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "会員登録", signup_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログイン", login_path, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
   </nav>
 </header>

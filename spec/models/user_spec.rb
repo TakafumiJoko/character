@@ -16,17 +16,17 @@ RSpec.describe User, type: :model do
         expect(@user.valid?).to eq(false)
       end
       
-      it '長さ（6文字以上か）' do
-        @user.name = "a" * 5
+      it '長さ（2文字以上か）' do
+        @user.name = "a" * 1
         expect(@user.valid?).to eq(false)
-        @user.name = "a" * 6
+        @user.name = "a" * 2
         expect(@user.valid?).to eq(true)
       end
       
-      it '長さ（55文字以下か）' do
-        @user.name = "a" * 55
+      it '長さ（50文字以下か）' do
+        @user.name = "a" * 50
         expect(@user.valid?).to eq(true)        
-        @user.name = "a" * 56
+        @user.name = "a" * 51
         expect(@user.valid?).to eq(false)
       end
     end

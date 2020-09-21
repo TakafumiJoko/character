@@ -27,10 +27,7 @@
   }
   
   function redo(){
-    if(undoDataStack.length === 0){
-      redoDataStack = [];
-      return;
-    }else if(redoDataStack.length === 0){
+    if(redoDataStack.length === 0){
       return;
     }
     recordUndoDataStack();

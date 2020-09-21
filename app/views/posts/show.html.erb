@@ -1,13 +1,13 @@
-<div class="row">
-  <div class="col-md-3">
-    
-  </div>
-  <div class="col-md-6">
+<div class="wrapper">
+  <div class="content">
     <div class="ryakuji-area">
-      <%= image_tag(@post.image_url, size: '450x450', class: 'ryakuji') %>
-      <%= @post.user.name %>
-      <%= @post.origin %>
-      <%= @post.stroke_count %>
+      <div class="item">
+        <%= link_to(image_tag(@post.image_url, size: '450x450'), @post, class: 'ryakuji') %>
+        <%= simple_format(@post.origin, class: 'origin') %>
+        <%= simple_format("#{@post.stroke_count}画", class: 'stroke-count') %>
+        <%= link_to("#{@post.user.name} 作", @post.user) %>
+        <%= simple_format("コメント件数(#{@post.comments.count})", class: 'comment-count') %> 
+      </div>
       <% if @post.user == current_user %>
         <%= link_to "編集", edit_post_path(@post), class: 'edit-btn btn btn-success' %>
         <%= link_to "削除", @post, method: :delete, data: { confirm: "本当に削除していいですか？" }, class: 'destroy-btn btn btn-warning' %>
@@ -21,7 +21,5 @@
       <% end %>
     </div>
   </div>
-  <div class="col-md-3">
-    
-  </div>
 </div>
+

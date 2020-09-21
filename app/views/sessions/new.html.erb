@@ -1,8 +1,5 @@
 <div class="row">
-  <div class="col-md-3">
-    
-  </div>
-  <div class="col-md-6 sessions-login-center">
+  <div class="col-md-6 offset-md-3 login-wrapper">
     <h1>ログイン</h1>
     <%= bootstrap_form_tag(url: login_path, local: true) do |f| %>
       <%= f.email_field :email, label: 'メールアドレス' %>
@@ -13,11 +10,5 @@
       <p>はじめての方はこちら</p>
       <%= link_to "新規登録する", signup_path, class: "btn btn-light" %>
     </div>
-    <div class="login-help">
-      Forgot your password? <a href="#">Click here to reset it</a>
-    </div>
-  </div>
-  <div class="col-md-3">
-    
   </div>
 </div>

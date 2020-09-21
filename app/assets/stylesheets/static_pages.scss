@@ -1,4 +1,16 @@
+.top-page-ryakuji-area {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.top-page-ryakuji {
+  border: 3px solid black;
+}
+
 .lead-button {
+  display: block;
+  width: 520px;
+  margin: 0 auto;
   padding: 0.5rem 1rem;
   font-size: 2.5rem;
   line-height: 1.5;
@@ -6,10 +18,6 @@
   color: #fff;
   background-color: #dc3545;
   border-color: #dc3545;
-  position: absolute;
-  top: 400px;
-  left: 33%;
-  z-index: 10;
   border-radius: 15px;
   color: white;
 }

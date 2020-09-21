@@ -1,24 +1,12 @@
-.users-index-users-list {
-  list-style: none;
-  margin-bottom: 20px;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid #ccc;
-  }
+.signup-wrapper{
+  margin-top: 100px;
 }
 
-.users-index-center h1,
-.users-index-center ul {
-  margin-bottom: 30px;
+.signup-wrapper form {
+  margin-top: 50px;
 }
 
-.users-signup-center h1,
-.users-signup-center form {
-  margin-bottom: 30px;
-}
-
-.users-signup-center .btn {
+.signup-wrapper .btn {
   width: 100%;
 }
 
