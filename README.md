@@ -6,18 +6,18 @@
 
 [『略字』](https://ryakuji.herokuapp.com)
 
-![『略字』画像](/character/app/assets/images/ryakuji-top-page.png)
+![『略字』画像](https://github.com/TakafumiJoko/character/blob/master/app/assets/images/ryakuji-top-page.png)
 
 # 使用した技術
 
 - インフラ
- - AWS(EC2 / S3)
+    - Heroku / AWS(S3)
 - フロントエンド 
- - HTML / CSS / JavaScript / Bootstrap
+    - HTML / CSS / JavaScript / Bootstrap
 - バックエンド 
- - Ruby 2.6.3 / Rails 6.0.3
+    - Ruby 2.6.3 / Rails 6.0.3
 - データベース 
- - PostgreSQL(本番環境)
+    - PostgreSQL
 
 # 主な機能
 
