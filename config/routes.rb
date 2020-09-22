@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  post "/guest_login", to: "sessions#create_guest"
+  
   resources :users
   resources :sessions, only: %i[new create destroy]
   resources :posts do

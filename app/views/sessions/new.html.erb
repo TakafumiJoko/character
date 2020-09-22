@@ -6,6 +6,7 @@
       <%= f.password_field :password, label: 'パスワード' %>
       <%= f.submit "ログイン", class: "btn btn-primary" %>
     <% end %>
+    <%= link_to 'ゲストログイン（閲覧用）', guest_login_path, method: :post, class: 'btn btn-info' %>
     <div class="accountRegistrationLead">
       <p>はじめての方はこちら</p>
       <%= link_to "新規登録する", signup_path, class: "btn btn-light" %>
