@@ -1,7 +1,7 @@
 <div class="top-page-wrapper">
   <div class="top-page-ryakuji-area">
     <% @posts.each do |post| %>
-        <%= image_tag post.image_url, size: '150x150', class: 'top-page-ryakuji' %>
+        <%= image_tag post.image_url, size: '100x100', class: 'top-page-ryakuji' %>
     <% end %>
   </div>
   <%= link_to "→オリジナルの略字を作る", signup_path, class: 'lead-button animate__animated animate__bounce animate__fast animate__repeat-3' %>

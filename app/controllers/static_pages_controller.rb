@@ -2,6 +2,6 @@
 
 class StaticPagesController < ApplicationController
   def top
-    @posts = Post.limit(27)
+    @posts = Post.limit(65)
   end
 end
