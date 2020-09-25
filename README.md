@@ -4,9 +4,9 @@
 
     このアプリは略字を書いてコメントし合うソーシャルメディアです。
 
-[『略字』](https://ryakuji.herokuapp.com)
+[当アプリ ---> 『略字』](https://ryakuji.herokuapp.com)
 
-![『略字』画像](https://github.com/TakafumiJoko/character/blob/master/app/assets/images/ryakuji-top-page.png)
+[![『略字』画像](https://github.com/TakafumiJoko/character/blob/master/app/assets/images/ryakuji-top-page.png)](https://ryakuji.herokuapp.com)
 
 # 使用した技術
 
