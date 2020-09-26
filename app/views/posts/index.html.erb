@@ -6,8 +6,10 @@
       <%= f.submit "検索" %>
     <% end %>
   </div>
-  <div class="index-content">
-    <%= render @posts %>
-  </div>
+  <%= will_paginate %>
+    <div class="index-content">
+      <%= render @posts %>
+    </div>
+  <%= will_paginate %>
 </div>
 
