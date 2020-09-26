@@ -8,10 +8,10 @@ class PostsController < ApplicationController
     @q = Post.ransack
     if params[:q].present?
       @q = Post.ransack(search_params)
-      @posts = @q.result
+      @posts = @q.result.paginate(page: params[:page])
     else
       params[:q] = { sorts: 'id desc' }
-      @posts = Post.all
+      @posts = Post.paginate(page: params[:page])
     end
   end
 
