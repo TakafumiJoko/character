@@ -35,36 +35,37 @@
     context.putImageData(imageData, 0, 0);
   }
   
-  function draw(x, y){
-    latestPosition.x = x;
-    latestPosition.y = y;
-    context.moveTo(lastPosition.x, lastPosition.y);
-    context.lineTo(latestPosition.x, latestPosition.y);
-    context.stroke();
-    lastPosition.x = x;
-    lastPosition.y = y;
-  }
 
-  function dragStart(event){
+  function drawStart(event){
     redoDataStack = [];
     recordUndoDataStack();
     context.beginPath();
     isDrag = true;
     lastPosition.x = event.layerX;
     lastPosition.y = event.layerY;
+    //スマホ対応
+    document.addEventListener('touchmove', handleTouchMove, {passive: false});
   }
   
-  function drag(event){
+  function draw(x, y){
     if(isDrag){
-      draw(event.layerX, event.layerY);
+      latestPosition.x = x;
+      latestPosition.y = y;
+      context.moveTo(lastPosition.x, lastPosition.y);
+      context.lineTo(latestPosition.x, latestPosition.y);
+      context.stroke();
+      lastPosition.x = x;
+      lastPosition.y = y;
     }else{
       return;
     }
   }
 
-  function dragEnd(){
+  function drawEnd(){
     context.closePath();
     isDrag = false;
+    //スマホ対応
+    document.removeEventListener('touchmove', handleTouchMove, {passive: false});
   }
 
   function clearCanvas(){
@@ -88,11 +89,19 @@
     imageURLField.value = base64;
   }
   
+  function handleTouchMove(event) {
+      event.preventDefault();
+  }
+    
   function initEventHandler(event){
-    canvas.addEventListener('mousedown', dragStart);
-    canvas.addEventListener('mousemove', drag);
-    canvas.addEventListener('mouseup', dragEnd);
-    canvas.addEventListener('mouseout', dragEnd);
+    canvas.addEventListener('mousedown', drawStart);
+    canvas.addEventListener('mousemove', (event) => {
+      const x = event.layerX;
+      const y = event.layerY;
+      draw(x, y);
+    });
+    canvas.addEventListener('mouseup', drawEnd);
+    canvas.addEventListener('mouseout', drawEnd);
     
     const clearButton = document.getElementById("clear-button");
     clearButton.addEventListener('click', clearCanvas);
@@ -106,9 +115,25 @@
     const redoButton = document.getElementById("redo-button");
     redoButton.addEventListener('click', redo);
     const submitButton = document.getElementById("submit-button");
-    submitButton.addEventListener('click', sendImage);
+    submitButton.addEventListener('click', sendImage);    
+    
+    // 以降スマホ対応
+    canvas.addEventListener('touchstart', drawStart);
+    canvas.addEventListener('touchmove', (event) => {
+      const x = event.layerX;
+      const y = event.layerY;
+      draw(x, y);
+    });
+    canvas.addEventListener('touchend', drawEnd);
+
+    clearButton.addEventListener('touchstart', clearCanvas);
+    clearButton.addEventListener('touchstart', setBlackLine);
+    eraseButton.addEventListener('touchstart', setWhiteLine);
+    drawButton.addEventListener('touchstart', setBlackLine);
+    undoButton.addEventListener('touchstart', undo);
+    redoButton.addEventListener('touchstart', redo);
+    submitButton.addEventListener('touchstart', sendImage);
   }
   
   initEventHandler(event);
-}());
-
+})();
