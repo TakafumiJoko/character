@@ -3,7 +3,6 @@
 class CommentsController < ApplicationController
   before_action :logged_in_user
   before_action :correct_user, only: [:destroy]
-  before_action :correct_commenter, only: [:create]
 
   def create
     @post = Post.find_by(id: params[:post_id])
@@ -34,14 +33,6 @@ class CommentsController < ApplicationController
     unless comment.user == current_user
       flash[:danger] = '権限がありません。'
       redirect_to new_post_url
-    end
-  end
-
-  def correct_commenter
-    post = Post.find_by(id: params[:post_id])
-    if post.user == current_user
-      flash[:danger] = '自分の投稿にコメントできません。'
-      redirect_to post
     end
   end
 end
